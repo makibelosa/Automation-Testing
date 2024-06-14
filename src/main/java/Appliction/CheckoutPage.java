@@ -32,10 +32,10 @@ public class CheckoutPage {
         driver.findElement(By.id("finish")).click();
     }
 
-    // Method to complete the checkout process
-    public void completeCheckout(String firstName, String lastName, String postalCode) {
-        enterShippingDetails(firstName, lastName, postalCode);
-        clickContinue();
-        clickFinish();
+//    // Method to complete the checkout process
+//    public void completeCheckout(String firstName, String lastName, String postalCode) {
+//        enterShippingDetails(firstName, lastName, postalCode);
+//        clickContinue();
+//        clickFinish();
     }
 }
