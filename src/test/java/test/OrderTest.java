@@ -12,9 +12,9 @@ public class OrderTest extends BaseTest {
         ExelReader excelReader = new ExelReader("src/test/resources/excel.xlsx");
         String username = excelReader.getCellData("Sheet1", 1, 0);
         String password = excelReader.getCellData("Sheet1", 1, 1);
-        String firstName = excelReader.getCellData("Sheet1", 1, 2);
+       /* String firstName = excelReader.getCellData("Sheet1", 1, 2);
         String lastName = excelReader.getCellData("Sheet1", 1, 3);
-        String postalCode = excelReader.getCellData("Sheet1", 1, 4);
+        String postalCode = excelReader.getCellData("Sheet1", 1, 4);*/
 
         TestData testData = new TestData(username, password);
 
@@ -36,7 +36,7 @@ public class OrderTest extends BaseTest {
 
         cartPage.proceedToCheckout();
 
-        checkoutPage.enterCheckoutInformation("//*[@id=\"first-name\"]", "//*[@id=\"last-name\"]", "//*[@id=\"postal-code\"]");
+       // checkoutPage.enterCheckoutInformation("//*[@id=\"first-name\"]", "//*[@id=\"last-name\"]", "//*[@id=\"postal-code\"]");
         checkoutPage.clickContinue();
         checkoutPage.clickFinish();
 

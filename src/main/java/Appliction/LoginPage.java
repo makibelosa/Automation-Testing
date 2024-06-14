@@ -20,6 +20,7 @@ public class LoginPage {
     public void enterUsername(String username) {
         driver.findElement(usernameField).sendKeys(username);
     }
+    // Find the username field by its XPath and enter text
 
     // Method to enter password
     public void enterPassword(String password) {
