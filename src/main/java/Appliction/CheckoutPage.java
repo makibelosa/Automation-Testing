@@ -31,7 +31,7 @@ public class CheckoutPage {
     public void clickFinish() {
         driver.findElement(By.id("finish")).click();
     }
-
+//hgfhiyjk
     // Method to complete the checkout process
     public void completeCheckout(String firstName, String lastName, String postalCode) {
         enterShippingDetails(firstName, lastName, postalCode);
