@@ -1,4 +1,4 @@
-package Appliction;
+package application;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -18,17 +18,17 @@ public class LoginPage {
 
     // Method to enter username
     public void enterUsername(String username) {
-        driver.findElement(usernameField).sendKeys(username);
+        driver.findElement(usernameField).sendKeys("standard_user");
     }
-    // Find the username field by its XPath and enter text
 
     // Method to enter password
     public void enterPassword(String password) {
-        driver.findElement(passwordField).sendKeys(password);
+        driver.findElement(passwordField).sendKeys("secret_user");
     }
 
     // Method to click the login button
     public void clickLogin() {
-        driver.findElement(loginButton).click();
+        driver.findElement(By.xpath("//*[@id=\"login-button\"]")).click();
     }
+
 }
