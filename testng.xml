@@ -6,6 +6,7 @@
         <parameter name="keepBrowserOpen" value="false"/>
         <classes>
             <class name="test.LoginTest"/>
+
         </classes>
     </test>
 </suite>

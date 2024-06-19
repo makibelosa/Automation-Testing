@@ -17,12 +17,6 @@ public class ExcelUtils {
         fis.close();
     }
 
-    public String getCellData(int rowNum, int colNum) {
-        Row row = sheet.getRow(rowNum);
-        Cell cell = row.getCell(colNum);
-        return cell.toString();
-    }
-
     public int getRowCount() {
         return sheet.getPhysicalNumberOfRows();
     }
@@ -31,7 +25,15 @@ public class ExcelUtils {
         return sheet.getRow(0).getPhysicalNumberOfCells();
     }
 
+    public String getCellData(int rowNum, int colNum) {
+        Row row = sheet.getRow(rowNum);
+        Cell cell = row.getCell(colNum);
+        return cell.toString();
+    }
+
     public void closeWorkbook() throws IOException {
-        workbook.close();
+        if (workbook != null) {
+            workbook.close();
+        }
     }
 }

@@ -1,6 +1,7 @@
 package test;
 
-import application.LoginPage;
+import Appliction.LoginPage;
+import Appliction.ProductsPage;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.Assert;
@@ -41,5 +42,25 @@ public class LoginTest extends BaseTest {
         Thread.sleep(2000);
 
         Assert.assertTrue(driver.findElement(By.cssSelector(".error-message-container")).isDisplayed(), "Error message not displayed");
+    }
+
+    @Test(dataProvider = "loginData")
+    public void loginAndAddProductsToCartTest(String username, String password) throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.enterUsername(username);
+        loginPage.enterPassword(password);
+        loginPage.clickLogin();
+        Thread.sleep(2000);
+
+        // Verify login was successful
+        Assert.assertFalse(driver.findElements(By.cssSelector(".error-message-container")).size() > 0, "Error message displayed");
+
+        // Navigate to Products Page
+        ProductsPage productsPage = new ProductsPage(driver);
+        productsPage.addSauceLabsBackpackToCart();
+        productsPage.addSauceLabsBikeLightToCart();
+
+        // Add assertions to verify products were added to cart
+        Assert.assertTrue(driver.findElement(By.cssSelector(".shopping_cart_badge")).isDisplayed(), "Products not added to cart");
     }
 }
