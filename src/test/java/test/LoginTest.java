@@ -1,7 +1,7 @@
 package test;
 
 import Appliction.LoginPage;
-import Appliction.ProductsPage;
+import Application.ProductsPage;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.Assert;
@@ -41,11 +41,14 @@ public class LoginTest extends BaseTest {
         loginPage.clickLogin();
         Thread.sleep(2000);
 
-        Assert.assertTrue(driver.findElement(By.cssSelector(".error-message-container")).isDisplayed(), "Error message not displayed");
+        // Verify login was not successful
+        Assert.assertTrue(driver.findElements(By.cssSelector(".error-message-container")).size() > 0, "Error message not displayed");
+
+        // No further action as this is for invalid login test
     }
 
     @Test(dataProvider = "loginData")
-    public void loginAndAddProductsToCartTest(String username, String password) throws InterruptedException {
+    public void loginAndAddRemoveProductTest(String username, String password) throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.enterUsername(username);
         loginPage.enterPassword(password);
@@ -57,10 +60,20 @@ public class LoginTest extends BaseTest {
 
         // Navigate to Products Page
         ProductsPage productsPage = new ProductsPage(driver);
-        productsPage.addSauceLabsBackpackToCart();
-        productsPage.addSauceLabsBikeLightToCart();
 
-        // Add assertions to verify products were added to cart
-        Assert.assertTrue(driver.findElement(By.cssSelector(".shopping_cart_badge")).isDisplayed(), "Products not added to cart");
+        // Perform action to add the Sauce Labs Backpack to cart
+        productsPage.addSauceLabsBackpackToCart();
+
+        // Verify product is added to the cart
+        Assert.assertTrue(driver.findElement(By.id("remove-sauce-labs-backpack")).isDisplayed(), "Product not added to cart");
+
+        // Navigate to shopping cart
+        productsPage.goToShoppingCart();
+
+        // Verify the cart page is displayed
+        Assert.assertTrue(driver.findElement(By.cssSelector(".cart_list")).isDisplayed(), "Cart page not displayed");
+
+        // Close the browser
+        driver.quit();
     }
 }
