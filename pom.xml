@@ -26,12 +26,22 @@
             <scope>test</scope>
         </dependency>
 
+
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>4.21.0</version>
         </dependency>
+
+
+
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>5.0.9</version> <!-- Replace with the latest version -->
+        </dependency>
+
 
         <!-- ExtentReports -->
         <dependency>

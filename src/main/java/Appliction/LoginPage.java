@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 public class LoginPage {
     WebDriver driver;
 
+    //https://github.com/makibelosa/-Automation-Test/tree/master
     // Locators for the username, password fields, and login button
     By usernameField = By.id("user-name");
     By passwordField = By.id("password");

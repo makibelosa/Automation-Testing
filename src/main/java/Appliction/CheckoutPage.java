@@ -13,9 +13,10 @@ public class CheckoutPage {
 
     // Method to enter shipping details
     public void enterShippingDetails(String firstName, String lastName, String postalCode) {
-        driver.findElement(By.id("first-name")).sendKeys(firstName);
-        driver.findElement(By.id("last-name")).sendKeys(lastName);
-        driver.findElement(By.id("postal-code")).sendKeys(postalCode);
+        driver.findElement(By.xpath("//*[@id=\"first-name\"]")).sendKeys("Samuel");
+        driver.findElement(By.xpath("//*[@id=\"last-name\"]")).sendKeys("Ramolotsha");
+        driver.findElement(By.xpath("//*[@id=\"postal-code\"]")).sendKeys("1458");
+
     }
 
     // Method to continue to the next step

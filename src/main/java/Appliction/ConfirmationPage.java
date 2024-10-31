@@ -1,4 +1,5 @@
 package Appliction;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -7,7 +8,7 @@ public class ConfirmationPage {
 
     // Locators
     private By orderConfirmationMessage = By.cssSelector(".complete-header");
-    private By backHomeButton = By.id("back-to-products");
+    private By backHomeButton = By.xpath("//*[@id=\"back-to-products\"]");
 
     public ConfirmationPage(WebDriver driver) {
         this.driver = driver;
